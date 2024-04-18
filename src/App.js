@@ -12,7 +12,7 @@ function App() {
     event.preventDefault();
     try {
       // Make a GET request to the specified URL
-      const response = await fetch('http://localhost:3001/?userId=alapan');
+      const response = await fetch('http://busticket-backend.onrender.com/?userId=alapan');
       console.log("Sent!!");
 
       // Check if the response is successful
@@ -34,7 +34,7 @@ function App() {
     const start = document.getElementById("source").value;
     const end = document.getElementById("dest").value;
     try {
-      const response = await fetch(`http://localhost:3001/api?start=${start}&end=${end}`);
+      const response = await fetch(`http://busticket-backend.onrender.com/api?start=${start}&end=${end}`);
       console.log("Sent Bus Request", start, end);
 
       if (!response.ok) {
