@@ -2,40 +2,18 @@ import { useState } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Card from './components/Card';
-import AuthBox from './components/AuthBox'
 
 
 function App() {
   var data;
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState();
   const [responseData, setResponseData] = useState(null);
-  const handleLoginClick = async (event) => {
-    event.preventDefault();
-    try {
-      // Make a GET request to the specified URL
-      const response = await fetch('https://localhost:3001/users?userId=alapan');
 
-
-      // Check if the response is successful
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      // Parse the JSON response
-      data = await response.json();
-
-      // Set the response data in state
-      setResponseData(data);
-    } catch (error) {
-      console.error('Error fetching data:', error.message);
-    }
-    setIsLoggedIn(prevState => !prevState);
-  };
   const work = async () => {
     const start = document.getElementById("source").value;
     const end = document.getElementById("dest").value;
     try {
-      const response = await fetch(`http://localhost:3001/buses?start=${start}&end=${end}`);
+      const response = await fetch(`https:/busticket-backend.onrender.com/buses?start=${start}&end=${end}`);
 
 
       if (!response.ok) {
@@ -57,7 +35,7 @@ function App() {
           <div className='text-2xl hover:text-secondary '>My Bus Ticket</div>
           <div>
             <div className="form">
-              <button type='submit' onClick={handleLoginClick} className='text-xl font-normal '>Sign In<AuthBox/></button>
+              <button type='submit'  className='text-xl font-normal z-50 '> <a href='/auth'>Login/Sign In</a></button>
               <div>
                 
               </div>
@@ -71,16 +49,13 @@ function App() {
         </div>
         
           {responseData && (
-            <div className='flex justify-center flex-wrap'>
-              <Card responseData={responseData} />
-              <Card responseData={responseData} />
-              <Card responseData={responseData} />
-              <Card responseData={responseData} />
+            <div className='flex justify-center flex-wrap'>{responseData.stops !== "NOTFOUND" &&
+              <Card responseData={responseData} />}
             </div>
           )}
       </body>
         
-      <AuthBox/>
+
 
     </>
   );

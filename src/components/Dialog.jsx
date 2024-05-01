@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
-export default function MyModal(responseData) {
+export default function MyModal(inputData) {
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -11,8 +11,11 @@ export default function MyModal(responseData) {
   function openModal() {
     setIsOpen(true)
   }
-
+  if (!inputData.stops || inputData.stops[0] === "NOTFOUND") {
+    return null; // If inputData is "NOTFOUND" or empty, return null to prevent rendering
+  }
   return (
+
     <>
       <div className="">
         <button
@@ -60,7 +63,7 @@ export default function MyModal(responseData) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-gray-500">
-                      {responseData.stops.map((stop, index) => (
+                      {inputData.stops.map((stop, index) => (
                         <li key={index} className='list-none '>
 
                           {stop !== "NOTFOUND" && (

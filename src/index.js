@@ -4,6 +4,7 @@ import './index.css';
 import ErrorPage from './routes/error';
 import App from './App';
 import Root from "./routes/root";
+import Auth from './routes/auth';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
   {
     path: "/api",
     element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
     errorElement: <ErrorPage />,
   },
 ]);
