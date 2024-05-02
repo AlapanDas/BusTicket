@@ -13,8 +13,8 @@ function App() {
     const start = document.getElementById("source").value;
     const end = document.getElementById("dest").value;
     try {
-      const response = await fetch(`https:/busticket-backend.onrender.com/buses?start=${start}&end=${end}`);
-
+      const response = await fetch(`https://busticket-backend.onrender.com/buses?start=${start}&end=${end}`);
+      console.log(response);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -22,10 +22,10 @@ function App() {
 
       data = await response.json();
       
-      setResponseData(data);
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
+    setResponseData(data);
   };
 
   return (
