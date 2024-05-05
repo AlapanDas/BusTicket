@@ -4,7 +4,7 @@ import './index.css';
 import ErrorPage from './routes/error';
 import App from './App';
 import Root from "./routes/root";
-import Auth from './routes/auth';
+import AuthBox from './components/AuthBox';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <Auth />,
+    element: <AuthBox />,
     errorElement: <ErrorPage />,
   },
 ]);
