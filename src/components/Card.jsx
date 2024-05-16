@@ -4,7 +4,7 @@ import MyModal from './Dialog'
 export default function Card({ responseData }) {
      return (
           <>
-               <div className=' card w-72 rounded-xl p-4 text-onsecondary m-2'>
+               <div className='bg-secondary w-72 rounded-xl p-4 text-onsecondary m-2'>
                     <div className="type pb-4 font-mono flex justify-between">
                          <p>Public</p>
                          <span>

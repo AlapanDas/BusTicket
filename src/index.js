@@ -3,13 +3,14 @@ import * as ReactDOM from "react-dom/client";
 import './index.css';
 import ErrorPage from './routes/error';
 import App from './App';
-import Root from "./routes/root";
 import AuthBox from './components/AuthBox';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Header from './components/Header';
+
 
 const router = createBrowserRouter([
   {
@@ -18,14 +19,22 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/api",
-    element: <Root />,
+    path: "/search",
+    element: <App />,
     errorElement: <ErrorPage />,
+    ErrorBoundary: <ErrorPage />
+  },
+  {
+    path: "/api",
+    element: <AuthBox />,
+    errorElement: <ErrorPage />,
+    ErrorBoundary: <ErrorPage />
   },
   {
     path: "/auth",
     element: <AuthBox />,
     errorElement: <ErrorPage />,
+    ErrorBoundary: <ErrorPage />
   },
 ]);
 
@@ -33,8 +42,13 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
-    <RouterProvider router={router} />
+
+    <Header />
+    <RouterProvider router={router} element={
+
+      <App />
+
+    } />
   </React.StrictMode>
 );
 
