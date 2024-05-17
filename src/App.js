@@ -1,14 +1,52 @@
 import './App.css';
-import Form from './components/Form';
+import React from 'react';
+import Search from './routes/search'
+import ErrorPage from './routes/error';
+import AuthBox from './components/AuthBox';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Welcome from './routes/welcome';
 
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Welcome />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <AuthBox />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/account",
+    element: <AuthBox />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/*",
+    element: <ErrorPage />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
 function App() {
   return (
-    <body className=' w-full h-screen'>
-      <div className='searchbox flex flex-col items-center  gap-2 rounded-2xl bg-opacity-40 backdrop-blur-sm  backdrop-brightness-75 bac text-onsecondary  bg-secondary  w-max mx-auto my-3 p-4  '>
-        <Form />
-      </div>
-    </body>
+    <>
+      <RouterProvider router={router} element={
+        <>
+        {/* Content will be displayed here... */}
+        </>
+      } />
+    </>
   );
 }
 

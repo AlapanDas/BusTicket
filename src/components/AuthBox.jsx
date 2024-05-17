@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import Header from './Header';
+
 import Auth from '../routes/auth';
+import Header from './Header';
 
 export default function App() {
-
+    const [loginInfo, setloginInfo] = useState({ "username": null, "isAdmin": false });
 
     return (
         <div>
-           
-            <Auth  />
+            <Header/>
+            <Auth setloginInfo={setloginInfo} />
         </div>
     );
 }

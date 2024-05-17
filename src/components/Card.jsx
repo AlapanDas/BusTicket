@@ -9,14 +9,14 @@ export default function Card({ responseData }) {
                          <p>Public</p>
                          <span>
                               <button>
-                                   {responseData && responseData.message !== "Bus Not Found" &&
+                                   {responseData && responseData.message !== "Bus not found" &&
                                         <MyModal stops={responseData.stops} />}
-                                   {responseData.message === "Bus Not Found" &&
+                                   {responseData.message === "Bus not found" &&
                                         <p>Error</p>}
                               </button>
                          </span>
                     </div>
-                    <div className="heading pb-2 text-2xl font-semibold">{responseData.number}</div>
+                    <div className="heading pb-2 text-2xl font-semibold">{responseData["bus-number"]}</div>
                     <div className="line flex text-lg font-normal  justify-between">
                          <p>{responseData.from}</p>
                          <p>{responseData.to}</p>
