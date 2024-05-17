@@ -38,7 +38,7 @@ export default function Auth({ setloginInfo }) {
                console.error(error);
           } finally {
                setLoading(false); 
-               window.location.href='/search';
+               // window.location.href='/search';
           }
      };
 
