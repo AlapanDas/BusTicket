@@ -30,7 +30,7 @@ export default function MyModal(inputData) {
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-20 " onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -43,7 +43,7 @@ export default function MyModal(inputData) {
             <div className="fixed inset-0 bg-black/25" />
           </Transition.Child>
 
-          <div className="fixed inset-0  overflow-y-auto">
+          <div className="fixed inset-0 top-auto overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -54,7 +54,7 @@ export default function MyModal(inputData) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" bg-secondary  w-full max-w-xs  text-center transform overflow-hidden rounded-2xl bg-white p-6  align-middle shadow-xl transition-all">
+                <Dialog.Panel className=" min-h-60 border-onsecondary border  bg-secondary  w-full max-w-72  text-center transform overflow-hidden rounded-2xl bg-white p-6  align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -69,7 +69,7 @@ export default function MyModal(inputData) {
                           {stop !== "NOTFOUND" && (
                             <ul>
                               {stop.map((innerStop, innerIndex) => (
-                                <li key={innerIndex} className=' font-normal text-lg'>{innerStop}</li>
+                                <li key={innerIndex} className=' font-normal text-md'>{innerStop}</li>
                               ))}
                             </ul>)}
                         </li>

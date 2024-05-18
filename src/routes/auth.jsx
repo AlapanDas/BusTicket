@@ -46,7 +46,7 @@ export default function Auth({ setloginInfo }) {
      return (
           <>
                {loading ? (
-                    <div className="loader z-50">Loading...</div> 
+                    <div className="loader z-50 text-xl my-52 mx-auto  text-center animate-spin">Loading...</div> 
                ) : (
                     <div className='  w-min p-4  rounded-xl backdrop-blur-sm relative m-auto top-52  '>
                          <div className="inner text-center">
