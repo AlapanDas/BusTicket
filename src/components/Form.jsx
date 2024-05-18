@@ -11,8 +11,8 @@ export default function Form() {
           const start = form.source.value;
           const end = form.dest.value;
 
-          const url = `http://localhost:3001/buses`;
-          // const url = `https://busticket-backend.onrender.com/buses`;
+          // const url = `http://localhost:3001/buses`;
+          const url = `https://busticket-backend.onrender.com/buses`;
           const data = {
                "start": start,
                "end": end
