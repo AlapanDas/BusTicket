@@ -14,7 +14,7 @@ export default function Header() {
           console.log(loginInfo);
      }
      return (
-          <header className=" text-white flex bg-secondary z-50 shadow-lg border-b-onsecondary  searchbox backdrop-opacity-80 sticky justify-between items-center font-semibold font-sans p-3  ">
+          <header className=" top-0  text-white flex bg-secondary z-50 shadow-lg border-b-onsecondary  searchbox backdrop-opacity-80 sticky justify-between items-center font-semibold font-sans p-3  ">
                <div className='text-2xl hover:text-ontertiary ' >
                     <Link to="/search">My Bus Ticket</Link>
                </div>

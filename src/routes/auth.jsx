@@ -31,8 +31,6 @@ export default function Auth({ setloginInfo }) {
                     setLoginInfo({ username: data.username, isAdmin: data.isAdmin });
 
                }
-
-
           } catch (error) {
                alert("Error")
                console.error(error);
