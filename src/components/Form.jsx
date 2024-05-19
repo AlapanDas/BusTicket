@@ -12,7 +12,7 @@ export default function Form() {
           const end = form.dest.value;
 
           // const url = `http://localhost:3001/buses`;
-          const url = `https://busticket-backend.onrender.com/buses`;
+          const url = `https://us-central1-mybusticket-f6a04.cloudfunctions.net/api/buses`;
           const data = {
                "start": start,
                "end": end
