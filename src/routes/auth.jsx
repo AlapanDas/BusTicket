@@ -11,7 +11,7 @@ export default function Auth({ setloginInfo }) {
           const password = document.getElementById('pswd').value;
 
           // const url = 'http://localhost:3001/login';
-          const url = 'https://us-central1-mybusticket-f6a04.cloudfunctions.net/api/login';
+          const url = 'https://busticket-backend.onrender.com/login';
           const data = {
                "username": username,
                "password": password
