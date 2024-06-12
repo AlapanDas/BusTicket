@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Search from './routes/search'
+import SearchN from './routes/searchNum'
 import ErrorPage from './routes/error';
 import AuthBox from './components/AuthBox';
 import {
@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Welcome from './routes/welcome';
+import SearchR from './routes/searchRoute';
 
 
 const router = createBrowserRouter([
@@ -17,8 +18,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/search",
-    element: <Search />,
+    path: "/search-route",
+    element: <SearchR />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/search-number",
+    element: <SearchN />,
     errorElement: <ErrorPage />,
   },
   {

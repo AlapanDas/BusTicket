@@ -1,9 +1,9 @@
 import React from 'react'
 import '../App.css';
-import Form from '../components/Form';
+import Form from '../components/FormRoute';
 import Header from '../components/Header';
 
-export default function Search() {
+export default function SearchR() {
   return (
     <body className=''>
       <Header />

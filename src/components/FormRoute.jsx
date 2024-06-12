@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import Card from '../components/Card';
+import Card from './Card';
 import data from '../contents/from_to.json';
+import number from '../contents/number.json';
 
 export default function Form() {
      const [responseData, setResponseData] = useState(null);
