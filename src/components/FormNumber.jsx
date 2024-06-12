@@ -11,7 +11,7 @@ export default function Form() {
           const number = form.number.value;
 
           // const url = `http://localhost:3001/buses`;
-          const url = `https://busticket-backend.onrender.com/buses`;
+          const url = `https://busticket-backend.onrender.com/busesnumber`;
           const data = {
                "number": number
           }
