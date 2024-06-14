@@ -8,9 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Welcome from './routes/welcome';
+import SimpleComponent from './components/Drop'
 import SearchR from './routes/searchRoute';
 
-
+const options = ['Option 1', 'Option 2', 'Another Option'];
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
     element: <ErrorPage />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/peppapig",
+    element: <SimpleComponent items={options} />,
+    errorElement: <ErrorPage />,
+  }
 ]);
 
 function App() {
@@ -49,7 +55,7 @@ function App() {
     <>
       <RouterProvider router={router} element={
         <>
-        {/* Content will be displayed here... */}
+          {/* Content will be displayed here... */}
         </>
       } />
     </>
