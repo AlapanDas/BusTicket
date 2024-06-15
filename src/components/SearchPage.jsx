@@ -24,7 +24,7 @@ const MyComponent = () => {
 
     <Header />
     <div className='mx-auto my-4  px-4 gap-4 '>
-      <Search  className="w-min"/>
+      <Search className="w-min" />
       <div className='flex items-center justify-center my-4'>
         <div className='items-center gap-2 rounded-2xl bg-opacity-40 backdrop-blur-sm backdrop-brightness-75 bg-gray-200 text-gray-800 p-4'>
           {responseData && responseData.data && responseData.data.length > 0 ? (
@@ -37,7 +37,10 @@ const MyComponent = () => {
         </div>
       </div>
     </div>
-
+    <footer className=' px-2 text-sm bottom-0 absolute text-secondary bg-onprimary  flex justify-between'>
+      <a href="https://www.algolia.com/">Search powered by Algolia</a>
+      <a href="www.alapandas.vercel.app">Created by Alapan Das</a>
+    </footer>
   </>
   );
 };

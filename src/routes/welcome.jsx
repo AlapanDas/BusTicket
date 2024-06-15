@@ -11,11 +11,14 @@ export default function Welcome() {
                          Welcome to Bus Ticket !!
                     </p>
                     <p className=' text-center hover:backdrop-blur-lg hover:font-medium rounded-xl p-3 bg-secondary shadow-xl ring-onsecondary'>
+                         <Link to='/peppapig'>Search for Buses</Link>
+                    </p>
+                    {/* <p className=' text-center hover:backdrop-blur-lg hover:font-medium rounded-xl p-3 bg-secondary shadow-xl ring-onsecondary'>
                          <Link to='/search-route'>Search for Buses by Route</Link>
                     </p>
                     <p className=' text-center hover:backdrop-blur-lg hover:font-medium rounded-xl p-3 bg-secondary shadow-xl ring-onsecondary'>
                          <Link to='/search-number'>Search for Buses by Number</Link>
-                    </p>
+                    </p> */}
                     <p className=' text-center hover:backdrop-blur-lg hover:font-medium rounded-xl p-3 bg-secondary shadow-xl ring-onsecondary'>
                          <Link to='/login'>Create an Account/ Login</Link>
                     </p>
