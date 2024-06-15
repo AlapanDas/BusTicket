@@ -1,70 +1,30 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MyBusTicket: _Your Kolkata Bus Guru_
+https://mybusticket.vercel.app/
 
-## Available Scripts
 
-In the project directory, you can run:
+Hey there! Feeling overwhelmed by Kolkata's bus system? You're not alone! This app is here to be your friendly guide, especially if you're new to the city. Built by yours truly, Alapan, MyBusTicket helps you navigate the ins and outs of getting around Kolkata by bus.
 
-### `npm start`
+## What can MyBusTicket do?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Search by Route
+https://mybusticket.vercel.app/search-route
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Ever felt lost trying to figure out which bus to take? No worries! Search for buses between any two places in Kolkata using landmarks or locality names you recognize. Think "Park Street to Howrah Station" or "Golpark to Alipore Zoo." Easy peasy!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Search by Bus Number
+https://mybusticket.vercel.app/search-number
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Got the bus number but clueless about its route? MyBusTicket has you covered! Look up the number and see exactly where that bus goes. No more wrong turns!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Making Kolkata Easier to Explore
+This app is all about making your commute smoother and exploring Kolkata more enjoyable. Whether you're a seasoned Kolkatan or a curious newcomer, MyBusTicket is here to be your bus buddy!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Wanna Lend a Hand?
 
-### `npm run eject`
+This project is still under construction, but with your help, it can become even better! If you're a developer with some ideas to improve MyBusTicket, we'd love to hear them! Just check out the CONTRIBUTING.md file for details.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MyBusTicket is licensed under the MIT License (see LICENSE.md for details).
