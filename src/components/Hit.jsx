@@ -6,7 +6,7 @@ export const Hit = ({ hit }) => {
   const [loading, setLoading] = useState(false);
   const [responseData, setResponseData] = useState(null);
 
-  const worker = async () => {
+  async function worker() {
     let number = hit['bus-number'];
 
     // const url = `http://localhost:3001/buses`;
@@ -32,37 +32,39 @@ export const Hit = ({ hit }) => {
         alert("BUS NOT FOUND")
       let enddata = await response.json();
 
-      if (enddata.message === "Buses not found")
-      { 
-        setResponseData({message: "Buses not found"});
-        Cookie.set('busData', JSON.stringify({ message: "Buses not found",data:enddata })) 
-      // console.log(Cookie.get('busData'));
-    }
+      if (enddata.message === "Buses not found") {
+        setResponseData({ message: "Buses not found" });
+        Cookie.set('busData', JSON.stringify({ message: "Buses not found", data: enddata }))
+        // console.log(Cookie.get('busData'));
+      }
 
-      else { 
+      else {
         setResponseData(enddata);
-        Cookie.set('busData', JSON.stringify({ message: "Buses found",data:enddata }))
+        Cookie.set('busData', JSON.stringify({ message: "Buses found", data: enddata }))
         // console.log(Cookie.get('busData'));
       }
 
     } catch (error) {
       console.error('Error fetching data:', error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
+      window.location.reload();
     }
 
   };
 
   return (
-    <article onClick={worker} className="bg-black">
-      <div className="hit-from">
-        <Highlight attribute="from" hit={hit} />
-      </div>
-      <div className="hit-to">
-        <Highlight attribute="to" hit={hit} />
-      </div>
-      <div className="hit-bus-number">
+    <article onClick={worker} className=" w-full p-0 m-0 rounded">
+      <div className="hit-bus-number  text-onprimary text-center font-bold">
         <Highlight attribute="bus-number" hit={hit} />
+      </div>
+      <div className="flex  justify-between">
+        <div className="hit-from">
+          <Highlight attribute="from" hit={hit} />
+        </div>
+        <div className="hit-to">
+          <Highlight attribute="to" hit={hit} />
+        </div>
       </div>
     </article>
   );

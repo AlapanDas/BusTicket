@@ -2,7 +2,6 @@ import React from 'react'
 import './card.css'
 import MyModal from './Dialog'
 export default function Card({ responseData }) {
-     console.log(responseData)
      return (
           <>
                <div className='bg-secondary w-64 rounded-xl p-4 text-onsecondary m-2'>
