@@ -3,7 +3,6 @@ import { useState } from "react";
 import Cookie from 'js-cookie';
 
 export const Hit = ({ hit }) => {
-  const [loading, setLoading] = useState(false);
   const [responseData, setResponseData] = useState(null);
 
   async function worker() {
@@ -16,7 +15,6 @@ export const Hit = ({ hit }) => {
     }
 
     try {
-      setLoading(true);
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -47,7 +45,6 @@ export const Hit = ({ hit }) => {
     } catch (error) {
       console.error('Error fetching data:', error.message);
     } finally {
-      setLoading(false);
       window.location.reload();
     }
 

@@ -4,22 +4,22 @@ import AuthContext from '../AuthContext';
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import acc from '../contents/acc.svg'
+import Cookies from 'js-cookie';
 
 export default function Header() {
-     const { loginInfo } = useContext(AuthContext);
-     const handlelogout =()=>{
-          loginInfo.username=null;
-          loginInfo.isAdmin=false;
-          window.location.href='/';
-          console.log(loginInfo);
+     const  userInfo  = JSON.parse(null)
+     const loginInfo = userInfo || Cookies.get('user-data');
+     console.log(loginInfo);
+     const handlelogout = () => {
+          Cookies.remove('user-data');
      }
      return (
-          <header className=" top-0  text-white flex bg-secondary z-50 shadow-lg border-b-onsecondary  searchbox backdrop-opacity-80 sticky justify-between items-center font-semibold font-sans p-3  ">
+          <header className=" top-0  flex bg-secondary z-50 shadow-lg border-b-onsecondary  searchbox backdrop-opacity-80 sticky justify-between items-center font-semibold font-sans p-3  ">
                <div className='text-2xl hover:text-ontertiary ' >
                     <Link to="/">My Bus Ticket</Link>
                </div>
-               <div className=''>
-                    <div className="">
+               <div >
+                    <div >
                          {loginInfo.username ?
                               <span className='flex gap-1'>
                                    <Popover className="relative">

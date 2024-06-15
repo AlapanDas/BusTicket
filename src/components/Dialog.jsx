@@ -43,18 +43,18 @@ export default function MyModal(inputData) {
             <div className="fixed inset-0 bg-black/25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 top-auto overflow-y-auto">
+          <div className="fixed inset-0 top-10 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
-                enter="ease-out duration-300"
+                enter="ease-out duration-200"
                 enterFrom="opacity-0 scale-95"
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" min-h-60 border-onsecondary border  bg-secondary  w-full max-w-72  text-center transform overflow-hidden rounded-2xl bg-white p-6  align-middle shadow-xl transition-all">
+                <Dialog.Panel className="z-50 min-h-62 border-onsecondary border  bg-secondary  w-full max-w-60 h-fit max-h-96  text-center transform overflow-hidden rounded-2xl p-6  align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -62,12 +62,12 @@ export default function MyModal(inputData) {
                     Routes:
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-gray-500">
+                    <p className="text-onprimary">
                       {inputData.stops.map((stop, index) => (
                         <li key={index} className='list-none '>
 
                           {stop !== "NOTFOUND" && (
-                            <ul>
+                            <ul className=' overflow-auto max-h-52'>
                               {stop.map((innerStop, innerIndex) => (
                                 <li key={innerIndex} className=' font-normal text-md'>{innerStop}</li>
                               ))}

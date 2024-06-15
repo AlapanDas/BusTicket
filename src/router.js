@@ -1,10 +1,8 @@
-import Welcome from "./routes/welcome";
-import ErrorPage from "./routes/error";
-import SearchN from "./routes/searchNum";
-import SearchR from "./routes/searchRoute";
-import AuthBox from './components/AuthBox';
+import Welcome from "./pages/welcome";
+import ErrorPage from "./pages/error";
+import AuthBox from './pages/AuthBox';
 import { createBrowserRouter } from "react-router-dom";
-import MyComponent from "./components/SearchPage";
+import MyComponent from "./pages/SearchPage";
 
 const router = createBrowserRouter([
     {
@@ -14,12 +12,12 @@ const router = createBrowserRouter([
     },
     {
       path: "/search-route",
-      element: <SearchR />,
+      element: <MyComponent />,
       errorElement: <ErrorPage />,
     },
     {
       path: "/search-number",
-      element: <SearchN />,
+      element: <MyComponent />,
       errorElement: <ErrorPage />,
     },
     {
@@ -39,6 +37,11 @@ const router = createBrowserRouter([
     },
     {
       path: "/peppapig",
+      element: <MyComponent />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/search",
       element: <MyComponent />,
       errorElement: <ErrorPage />,
     }
