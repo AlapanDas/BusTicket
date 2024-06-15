@@ -2,6 +2,7 @@ import React from 'react'
 import './card.css'
 import MyModal from './Dialog'
 export default function Card({ responseData }) {
+     console.log(responseData)
      return (
           <>
                <div className='bg-secondary w-64 rounded-xl p-4 text-onsecondary m-2'>
@@ -9,7 +10,7 @@ export default function Card({ responseData }) {
                          <p>Bus</p>
                          <span>
                               <button>
-                                   {responseData && responseData.message !== "Bus not found" &&
+                                   {responseData && responseData["bus-number"] !== "Bus not found" &&
                                         <MyModal stops={responseData.stops} />}
                                    {responseData.message === "Bus not found" &&
                                         <p>Error</p>}
