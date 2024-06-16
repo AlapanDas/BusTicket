@@ -7,9 +7,9 @@ import acc from '../contents/acc.svg'
 import Cookies from 'js-cookie';
 
 export default function Header() {
-     const  userInfo  = JSON.parse(null)
+     const userInfo = { "username": null }
      const loginInfo = userInfo || Cookies.get('user-data');
-     console.log(loginInfo);
+
      const handlelogout = () => {
           Cookies.remove('user-data');
      }

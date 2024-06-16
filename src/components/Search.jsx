@@ -6,15 +6,16 @@ import '../contents/style.css';
 import { Hit } from "./Hit";
 import Cookies from "js-cookie";
 
-
-const searchClient = algoliasearch(process.env.APPID, process.env.APIKEY);
+const appId = process.env.APPID || "HPU73OA9ZB";
+const apiKey = process.env.APIKEY || "07feac1c47982bf8632afcfc74db7449";
+const searchClient = algoliasearch(appId, apiKey);
 
 export const Search = () => {
     const [showHits, setShowHits] = useState(true);
     const [responseData, setResponseData] = useState(Cookies.get('busData') || null);
 
-    function worker() {
 
+    function worker() {
         const ol = document.getElementById("results");
         ol.style.display = 'block';
     }

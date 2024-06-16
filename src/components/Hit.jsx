@@ -3,43 +3,31 @@ import { useState } from "react";
 import Cookie from 'js-cookie';
 
 export const Hit = ({ hit }) => {
-  const [responseData, setResponseData] = useState(null);
 
   async function worker() {
     let number = hit['bus-number'];
-
-    // const url = `http://localhost:3001/buses`;
-    const url = `https://busticket-backend.onrender.com/busesnumber`;
-    const data = {
-      "number": number
-    }
+    let stops = hit['stops'];
+    let to = hit['to'];
+    let from = hit['from'];
+    let id = hit['_id']['$oid'];
+    const enddata = [
+      {
+        "_id": id,
+        "bus-number": number,
+        "from": from,
+        "to": to,
+        "stops": stops
+      }
+    ]
+    console.log(enddata)
 
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      if (response.status === 404)
-        alert("BUS NOT FOUND")
-      let enddata = await response.json();
-
-      if (enddata.message === "Buses not found") {
-        setResponseData({ message: "Buses not found" });
+      if (enddata[0]._id !== null) {
         Cookie.set('busData', JSON.stringify({ message: "Buses not found", data: enddata }))
-        // console.log(Cookie.get('busData'));
       }
-
       else {
-        setResponseData(enddata);
         Cookie.set('busData', JSON.stringify({ message: "Buses found", data: enddata }))
-        // console.log(Cookie.get('busData'));
       }
 
     } catch (error) {
