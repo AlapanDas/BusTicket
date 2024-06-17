@@ -25,7 +25,7 @@ export const Search = () => {
             searchClient={searchClient}
             indexName="results"
         >
-            <Configure hitsPerPage={20} />
+            <Configure hitsPerPage={60} />
             <div className="ais-InstantSearch">
                 {/* SearchBox */}
                 <SearchBox
@@ -34,8 +34,8 @@ export const Search = () => {
                 />
                 {/* Results */}
                 {showHits && (
-                    <div id="results">
-                        <Hits hitComponent={(props) => <Hit {...props} setResponseData={setResponseData} />} />
+                    <div id="results" className=" my-2  max-sm:h-52 max-md:h-60 max-lg:h-72 overflow-y-scroll shadow">
+                        <Hits className=" bg-onsecondary" hitComponent={(props) => <Hit {...props} setResponseData={setResponseData} />} />
                     </div>
                 )}
             </div>

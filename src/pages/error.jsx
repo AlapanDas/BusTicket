@@ -6,10 +6,12 @@ export default function ErrorPage() {
      return (
           <>
                <Header />
-               <div className=" dark:bg-black text-white w-screen h-screen flex
-          flex-col justify-center items-center ">
-                    <h1 className="text-2xl">404dd</h1>
-                    <h2 className="text-lg">Page Not Found</h2>
+               <div className=" dark:bg-black  flex
+          flex-col justify-center items-center  text-secondary font-bold">
+                    <div className="absolute top-[50vh]">
+                         <h1 className="text-5xl text-center">404</h1>
+                         <h2 className="text-2xl">Page Not Found</h2>
+                    </div>
                </div>
           </>
      );

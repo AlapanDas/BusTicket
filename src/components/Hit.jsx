@@ -19,8 +19,6 @@ export const Hit = ({ hit }) => {
         "stops": stops
       }
     ]
-    console.log(enddata)
-
     try {
 
       if (enddata[0]._id !== null) {
@@ -39,7 +37,7 @@ export const Hit = ({ hit }) => {
   };
 
   return (
-    <article onClick={worker} className=" w-full p-0 m-0 rounded">
+    <article onClick={worker} className=" w-full p-0 m-0 rounded-full">
       <div className="hit-bus-number  text-onprimary text-center font-bold">
         <Highlight attribute="bus-number" hit={hit} />
       </div>
