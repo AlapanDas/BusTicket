@@ -34,7 +34,7 @@ export const Search = () => {
                 />
                 {/* Results */}
                 {showHits && (
-                    <div id="results" className=" my-2  max-sm:h-52 max-md:h-60 max-lg:h-72 overflow-y-scroll shadow">
+                    <div id="results" className=" my-2  max-sm:h-52 max-md:h-60 lg:h-60 overflow-y-scroll shadow">
                         <Hits className=" bg-onsecondary" hitComponent={(props) => <Hit {...props} setResponseData={setResponseData} />} />
                     </div>
                 )}
