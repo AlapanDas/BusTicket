@@ -32,7 +32,7 @@ const MyComponent = () => {
               <Card key={bus._id} responseData={bus} />
             ))
           ) : (
-            <p>No buses found or error occurred.</p>
+            <p>Search for Buses by typing name or number</p>
           )}
         </div>
       </div>
