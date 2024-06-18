@@ -3,6 +3,7 @@ import ErrorPage from "./pages/error";
 import AuthBox from './pages/AuthBox';
 import { createBrowserRouter } from "react-router-dom";
 import MyComponent from "./pages/SearchPage";
+import About from "./pages/About";
 
 const router = createBrowserRouter([
     {
@@ -36,8 +37,8 @@ const router = createBrowserRouter([
       errorElement: <ErrorPage />,
     },
     {
-      path: "/peppapig",
-      element: <MyComponent />,
+      path: "/about",
+      element: <About/>,
       errorElement: <ErrorPage />,
     },
     {

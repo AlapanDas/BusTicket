@@ -1,9 +1,9 @@
 import React from 'react'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom'
+import Bubble from '../components/Bubble'
 import Footer from '../components/Footer'
 import bus from '../contents/bus.svg'
-import bg from '../contents/bg.svg'
 import about from '../contents/about.svg'
 import arrow from '../contents/arrow.svg'
 
@@ -11,11 +11,21 @@ export default function Welcome() {
      return (
           <>
                <Header />
-               <div className='relative h-min'>
-                    <div>
-                         <div className='relative -rotate-2 hover:shadow-xl transition-all hover:-rotate-0 m-4   shadow-2xl   max-sm:w-64 max-sm:h-72 w-64 h-72 bottom-0 border rounded-3xl bg-secondary p-2  bg-gradient-to-tr from-black via-red-900 to-secondary'>
+               <div className='relative '>
+                    <div className='Image '>
+                         <div className='fixed -z-10 max-lg:h-28  max-lg:w-28 lg:w-36 lg:h-36 xl:w-36 xl:h-36 right-72 -top-28'>
+                              <Bubble />
+                              {/* <img className='rounded-full mx-10 z-50  max-lg:h-28  max-lg:w-28 lg:w-36 lg:h-36 xl:w-36 xl:h-36' src="https://www.github.com/AlapanDas.png" alt="Logo" /> */}
+                         </div>
+                         <div className='fixed -z-10 max-lg:h-28  max-lg:w-28 lg:w-36 lg:h-36 xl:w-36 xl:h-36 top-1/2 -left-32 '>
+                              <Bubble />
+
+                         </div>
+                    </div>
+                    <div className=' xl:ml-20'>
+                         <div className='relative -rotate-2 hover:shadow-xl transition-all hover:-rotate-0 m-4   shadow-2xl   max-sm:w-64 max-sm:h-72 w-64 h-72 bottom-0 border rounded-3xl bg-red-700 bg-opacity-40 p-2  backdrop-blur-sm border-secondary '>
                               <div className='flex justify-between '>
-                                   <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-white'>Search</p>
+                                   <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-primary'><Link to={'/search'}>Search</Link></p>
                                    <div className='p-2 rounded-full bg-white'>
                                         <Link to={'/search'}>
                                              <img src={arrow} alt="" />
@@ -25,19 +35,19 @@ export default function Welcome() {
                               <img className='bottom-0 absolute left-0  h-32 ' src={bus} alt="" />
                          </div>
                     </div>
-                    <div className="heading text-5xl max-md:text-4xl max-sm:text-3xl font-bold text-center py-28 max-sm:py-20 cursor-pointe">
-                         <h1>Welcome to My
-                              <span className='hover:text-secondary  r'>Bus</span>Ticket</h1>
+                    <div className="heading text-5xl max-md:text-4xl max-sm:text-3xl font-bold text-center py-20 max-sm:py-20 cursor-pointer  drop-shadow-2xl ">
+                         <h1 className='drop-shadow-2xl'>Welcome to My
+                              <span className='hover:text-secondary '>Bus</span>Ticket</h1>
                     </div>
-                    <div className='right-0 absolute inset-y-full' >
-                         <div className=' -rotate-2 bottom-0  hover:shadow-xl transition-all hover:-rotate-0 m-8 mb-20  shadow-2xl  max-sm:w-64 max-sm:h-72 w-64 h-72 right-0 top-2 border rounded-3xl bg-secondary p-2  bg-gradient-to-br to-black via-red-900 from-secondary'>
+                    <div className='right-0 absolute inset-y-full xl:mr-20 ' >
+                         <div className=' -rotate-2 bottom-0  hover:shadow-xl transition-all hover:-rotate-0 mx-8 mb-8  shadow-2xl  max-sm:w-64 max-sm:h-72 w-64 h-72 right-0 -top-10 border rounded-3xl bg-red-700 bg-opacity-40 p-2  backdrop-blur-sm border-secondary '>
                               <div className='flex justify-between '>
                                    <div className='p-2 rounded-full bg-white'>
                                         <Link to={'/about'}>
                                              <img className=' -rotate-90' src={arrow} alt="" />
                                         </Link>
                                    </div>
-                                   <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-white'>About</p>
+                                   <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-primary'><Link to={'/about'}>About</Link></p>
                               </div>
                               <img className='bottom-0 m-2 absolute  h-32 ' src={about} alt="" />
                          </div>
