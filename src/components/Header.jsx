@@ -4,20 +4,41 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import Cookies from 'js-cookie';
 import ham from '../contents/ham.svg'
-import offline from '../contents/offline.svg'
 import logo from '../contents/profile-circle.svg'
 
 export default function Header() {
-  const userInfo = { "username": null }
-  const loginInfo = userInfo || Cookies.get('user-data');
+
+  let userInfo = undefined;
+  try {
+    const loginInfo = Cookies.get('user_data');
+    userInfo = JSON.parse(loginInfo);
+  } catch (error) {
+    
+  }
+  
+  
+  console.log(userInfo);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-  const handlelogout = () => {
-    Cookies.remove('user-data');
+  function handlelogout() {
+
+
+    try {
+      // deleteUser();
+      Cookies.remove('user_data');
+
+    }
+    catch { }
+    finally { window.location.href = "/"; }
+
   }
+
+
+
   return (
     <header className=" shadow backdrop-blur-2xl mb-1 top-0 sticky z-50 flex justify-between p-1 font-poppins bg-tertiar">
       <div className="bg-primary p-2 rounded-full text-white flex align-baseline">
@@ -39,7 +60,7 @@ export default function Header() {
       <div className="text-white bg-black rounded-full flex items-center px-2">
         <Link className="h-10 flex " to="/">
           {/* account icon */}
-          {!loginInfo.username ?
+          {userInfo && userInfo.status ?
             <Popover className="relative">
               <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900  border-none">
                 <img src={logo} className='h-10' alt='Account' />
@@ -60,13 +81,13 @@ export default function Header() {
                     <div>
                       <div className="group relative flex flex-wrap gap-x-6 rounded-lg ">
                         <div className='flex justify-center p-2 gap-4 items-center'>
-                          <a href='/' className="font-semibold text-white text-lg">
-                            <p>
-                              {loginInfo.username || 'user'}
-                            </p>
-                          </a>
-                          <button onClick={handlelogout}>
-                            <p className="font-normal text-white text-lg hover:text-secondary">Logout</p>
+
+                          <p className="font-semibold text-white text-lg">
+                            User
+                          </p>
+
+                          <button onClick={handlelogout}   className="font-normal text-white text-lg hover:text-secondary">
+                            Logout
                           </button>
                         </div>
                       </div>
@@ -74,8 +95,7 @@ export default function Header() {
                   </div>
                 </Popover.Panel>
               </Transition>
-            </Popover> : <img className=' bg-white invert' src={offline} alt="" />}
-
+            </Popover> : <Link className='flex items-center' to="/login"><p >Login</p></Link>}
         </Link>
       </div>
       {isSidebarOpen && (

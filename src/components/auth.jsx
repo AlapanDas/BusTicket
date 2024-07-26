@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
-import AuthContext from '../AuthContext';
 import Cookies from 'js-cookie';
 
-export default function Auth({ setloginInfo }) {
-     const { setLoginInfo } = useContext(AuthContext);
+export default function Auth() {
+     const [setlogin, updatelogin] = useState(false);
      const [loading, setLoading] = useState(false);
 
      const handleSubmit = async (e) => {
@@ -11,7 +10,7 @@ export default function Auth({ setloginInfo }) {
           const username = document.getElementById('userid').value;
           const password = document.getElementById('pswd').value;
 
-          const url = 'http://localhost:3001/login';
+          const url = 'https://gearshift-backend.onrender.com/user/login';
           // const url = 'https://busticket-backend.onrender.com/login';
           const data = {
                "username": username,
@@ -19,21 +18,32 @@ export default function Auth({ setloginInfo }) {
           }
           try {
                setLoading(true);
-               const response = await fetch(url, {
+               const response = await fetch('https://gearshift-backend.onrender.com/user/login', {
                     method: 'POST',
-                    body: JSON.stringify(data),
                     headers: {
                          'Content-Type': 'application/json',
                     },
-               });
-               // alert("Success!!")
-               if (response.status === 200) {
-                    const data = (await response.json());
-                    // data=data[0];
-                    console.log(data[0]);
-                    Cookies.set('user-data',JSON.parse(data[0]));
-
-               }
+                    body: JSON.stringify({
+                         username: username,
+                         password: password,
+                    }),
+                    credentials: 'include',
+               })
+                    .then((response) => response.json())
+                    .then((data) => {
+                         console.log(data)
+                         let user_data = data;
+     
+                         if (data.status)
+                              updatelogin(true);
+     
+                         Cookies.set('user_data', JSON.stringify(user_data), { expires: 2 });
+                         window.location.href="/";
+                    })
+                    .catch((error) => {
+                         updatelogin(false);           
+                         console.error('Error:', error)
+                    });
           } catch (error) {
                alert("Error")
                Cookies.set('user-data',{'message':0})
@@ -52,15 +62,15 @@ export default function Auth({ setloginInfo }) {
                ) : (
                     <div className='  w-min p-4  rounded-xl backdrop-blur-sm relative m-auto top-52  '>
                          <div className="inner text-center">
-                              <h1 className='text-lg font-semibold md:text-start sm:text-center my-1'>Sign In</h1>
-                              <p className='font-normal text-md font-mono text-start max-sm:text-xs'>Please fill the necessary details</p>
+                              <h1 className='text-lg font-semibold md:text-start sm:text-center my-1'>Log In</h1>
                               <form onSubmit={handleSubmit}>
-                                   <p className=' text-sm italic font-mono' >UserID</p>
-                                   <input autoComplete='current-password' id='userid' type="text" className='italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52 rounded-md' />
-                                   <p className=' text-sm italic font-mono' >Password</p>
-                                   <input autoComplete='current-password' id='pswd' type="password" className='italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
-                                   <button type="submit" className='border border-onsecondary p-2 mx-auto mt-2 rounded-xl hover:bg-secondary '>Sign In</button>
+                                   <p className=' text-sm italic font-mono ' >UserID</p>
+                                   <input autoComplete='current-password' id='userid' type="text" className='italic shadow-xl border font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52 rounded-md' />
+                                   <p className=' text-sm italic font-mono ' >Password</p>
+                                   <input autoComplete='current-password' id='pswd' type="password" className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
+                                   <button type="submit" className='border border-onsecondary p-2 mx-auto mt-2 rounded-xl hover:bg-secondary '>Log In</button>
                               </form>
+                              <h2>Don't have an account? Sign up <a href="/signin" className='text-red-800'>here !!</a></h2>
                          </div>
                     </div>
                )}
