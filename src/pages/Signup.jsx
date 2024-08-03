@@ -30,8 +30,10 @@ function Signup() {
                     let user_data = JSON.stringify(data);
 
 
-
-                    Cookies.set('user_data', user_data, { expires: 2 });
+                    if(user_data.status!=='false')
+                         Cookies.set('user_data', user_data, { expires: 2 });
+                    else
+                         alert("Wrong Credentials",user_data.message);
                     window.location.href = '/'
                })
                .catch((error) => {

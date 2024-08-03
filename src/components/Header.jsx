@@ -16,9 +16,6 @@ export default function Header() {
     
   }
   
-  
-  console.log(userInfo);
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {

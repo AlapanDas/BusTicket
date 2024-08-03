@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Cookies from 'js-cookie';
 
 export default function Auth() {
@@ -11,14 +11,10 @@ export default function Auth() {
           const password = document.getElementById('pswd').value;
 
           const url = 'https://gearshift-backend.onrender.com/user/login';
-          // const url = 'https://busticket-backend.onrender.com/login';
-          const data = {
-               "username": username,
-               "password": password
-          }
+
           try {
                setLoading(true);
-               const response = await fetch('https://gearshift-backend.onrender.com/user/login', {
+               await fetch(url, {
                     method: 'POST',
                     headers: {
                          'Content-Type': 'application/json',
@@ -31,25 +27,27 @@ export default function Auth() {
                })
                     .then((response) => response.json())
                     .then((data) => {
-                         console.log(data)
                          let user_data = data;
-     
+
                          if (data.status)
                               updatelogin(true);
-     
-                         Cookies.set('user_data', JSON.stringify(user_data), { expires: 2 });
-                         window.location.href="/";
+                         if (user_data.status !== false) {
+                              Cookies.set('user_data', JSON.stringify(user_data), { expires: 2 });
+                              window.location.href = "/";
+                         }
+                         else
+                              alert(user_data.error || user_data.message);
                     })
                     .catch((error) => {
-                         updatelogin(false);           
+                         updatelogin(false);
                          console.error('Error:', error)
                     });
           } catch (error) {
                alert("Error")
-               Cookies.set('user-data',{'message':0})
+               Cookies.set('user-data', { 'message': 0 })
                console.error(error);
           } finally {
-               setLoading(false); 
+               setLoading(false);
                // window.location.href='/search';
           }
      };
@@ -58,7 +56,7 @@ export default function Auth() {
      return (
           <>
                {loading ? (
-                    <div className="loader z-50 text-xl my-52 mx-auto  text-center animate-spin">Loading...</div> 
+                    <div className="loader z-50 text-xl my-52 mx-auto  text-center animate-spin">Loading...</div>
                ) : (
                     <div className='  w-min p-4  rounded-xl backdrop-blur-sm relative m-auto top-52  '>
                          <div className="inner text-center">

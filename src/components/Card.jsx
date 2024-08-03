@@ -1,5 +1,4 @@
 import React from 'react'
-import './card.css'
 import MyModal from './Dialog'
 export default function Card({ responseData }) {
      return (

@@ -14,6 +14,7 @@
     "algoliasearch": "^4.23.3",
     "axios": "^1.6.8",
     "bootstrap-icons": "^1.11.3",
+    "dotenv": "^16.4.5",
     "formik": "^2.4.6",
     "instantsearch.css": "^8.2.1",
     "js-cookie": "^3.0.5",

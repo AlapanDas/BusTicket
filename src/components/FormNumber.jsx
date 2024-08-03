@@ -26,7 +26,6 @@ export default function Form() {
           const data = {
                "number": number
           }
-          // console.log(number);
           try {
                setLoading(true);
                const response = await fetch(url, {

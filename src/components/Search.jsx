@@ -5,14 +5,15 @@ import { useState } from "react";
 import '../contents/style.css';
 import { Hit } from "./Hit";
 import Cookies from "js-cookie";
-
-const appId = process.env.APPID || "HPU73OA9ZB";
-const apiKey = process.env.APIKEY || "07feac1c47982bf8632afcfc74db7449";
+const appId = process.env.REACT_APP_APIKEY; 
+const apiKey = process.env.REACT_APP_APIKEY ;
 const searchClient = algoliasearch(appId, apiKey);
+
 
 export const Search = () => {
     const [showHits, setShowHits] = useState(true);
     const [responseData, setResponseData] = useState(Cookies.get('busData') || null);
+    
 
 
     function worker() {
