@@ -5,8 +5,8 @@ import { useState } from "react";
 import '../contents/style.css';
 import { Hit } from "./Hit";
 import Cookies from "js-cookie";
-const appId = process.env.REACT_APP_APIKEY||"HPU73OA9ZB"; 
-const apiKey = process.env.REACT_APP_APIKEY||"07feac1c47982bf8632afcfc74db7449" ;
+const appId = "HPU73OA9ZB"; 
+const apiKey = "07feac1c47982bf8632afcfc74db7449" ;
 const searchClient = algoliasearch(appId, apiKey);
 
 
