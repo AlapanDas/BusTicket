@@ -21,7 +21,7 @@ export default function App() {
     <div>
       <Header />
       {
-        setlogin ?document.location.href='/' : <auth />
+        setlogin ?document.location.href='/' : <Auth />
       }
 
     </div>
