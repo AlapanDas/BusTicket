@@ -31,7 +31,7 @@ function Signup() {
 
 
                     if(user_data.status!=='false')
-                         Cookies.set('user_data', user_data, { expires: 2 });
+                         alert("Failed")
                     else
                          alert("Wrong Credentials",user_data.message);
                     window.location.href = '/'

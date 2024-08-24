@@ -1,5 +1,4 @@
 import { Highlight } from "react-instantsearch";
-import { useState } from "react";
 import Cookie from 'js-cookie';
 
 export const Hit = ({ hit }) => {
@@ -9,7 +8,8 @@ export const Hit = ({ hit }) => {
     let stops = hit['stops'];
     let to = hit['to'];
     let from = hit['from'];
-    let id = hit['_id']['$oid'];
+    let id = hit['objectID'];
+    
     const enddata = [
       {
         "_id": id,

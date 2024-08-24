@@ -1,10 +1,11 @@
 import Welcome from "./pages/welcome";
-import ErrorPage from "./pages/error";
+import ErrorPage from "./pages/Error";
 import AuthBox from './pages/AuthBox';
 import { createBrowserRouter } from "react-router-dom";
 import MyComponent from "./pages/SearchPage";
 import About from "./pages/About";
 import Signup from "./pages/Signup";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <Signup />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
     errorElement: <ErrorPage />
   }
 ]);

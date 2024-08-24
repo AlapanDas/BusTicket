@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import Auth from '../components/auth';
+import Auth from './Login';
 import Header from '../components/Header';
 
 export default function App() {
@@ -23,7 +23,6 @@ export default function App() {
       {
         setlogin ?document.location.href='/' : <Auth />
       }
-
     </div>
   );
 }

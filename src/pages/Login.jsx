@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Cookies from 'js-cookie';
+import { authUser } from '../middleware/authUser';
+
 
 export default function Auth() {
-     const [setlogin, updatelogin] = useState(false);
      const [loading, setLoading] = useState(false);
 
      const handleSubmit = async (e) => {
@@ -10,45 +11,25 @@ export default function Auth() {
           const username = document.getElementById('userid').value;
           const password = document.getElementById('pswd').value;
 
-          const url = 'https://gearshift-backend.onrender.com/user/login';
 
           try {
                setLoading(true);
-               await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                         'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                         username: username,
-                         password: password,
-                    }),
-                    credentials: 'include',
-               })
-                    .then((response) => response.json())
-                    .then((data) => {
-                         let user_data = data;
+               const response = await authUser(username, password);
 
-                         if (data.status)
-                              updatelogin(true);
-                         if (user_data.status !== false) {
-                              Cookies.set('user_data', JSON.stringify(user_data), { expires: 2 });
-                              window.location.href = "/";
-                         }
-                         else
-                              alert(user_data.error || user_data.message);
-                    })
-                    .catch((error) => {
-                         updatelogin(false);
-                         console.error('Error:', error)
-                    });
+
+               if (response.status) {
+                    Cookies.set('auth_user', JSON.stringify(response.access_token));
+                    Cookies.set('admin_user', response.isAdmin);
+               }
+               else{
+                    alert("Wrong Username or Password");
+               }
           } catch (error) {
-               alert("Error")
-               Cookies.set('user-data', { 'message': 0 })
+               alert("Error in the Request")
                console.error(error);
           } finally {
                setLoading(false);
-               // window.location.href='/search';
+               window.location.href='/search';
           }
      };
 
