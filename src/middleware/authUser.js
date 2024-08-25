@@ -7,7 +7,7 @@ async function authUser(username, password) {
      headers.append('Access-Control-Allow-Origin', '*');
      const response = fetch(url, {
           method: 'POST',
-          mode: 'cors',
+          mode: 'no-cors',
           credentials: 'include',
           headers: headers,
           body: JSON.stringify({
