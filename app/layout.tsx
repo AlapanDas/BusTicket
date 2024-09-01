@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "MyBusTicket",
   description: "MyBusTicket: Your Kolkata Bus Guru",
+  icons:[
+    {
+      url:"/icon.svg"
+    }
+  ]
 };
 
 export default function RootLayout({
