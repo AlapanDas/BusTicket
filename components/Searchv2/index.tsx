@@ -10,12 +10,10 @@ import {
 import { HitItem } from './hit';
 import './style.css'
 
-
-
 export default function HomePage() {
 
-  let appId = (process.env.APPID) || "";
-  let apiKey = (process.env.APIKEY) || "";
+  let appId = (process.env.NEXT_PUBLIC_APPID) || "";
+  let apiKey = (process.env.NEXT_PUBLIC_APIKEY) || "";
 
   const client = algoliasearch(appId, apiKey);
   console.log(client._ua);
