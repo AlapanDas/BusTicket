@@ -14,8 +14,8 @@ import './style.css'
 
 export default function HomePage() {
 
-  let appId = (process.env.NEXT_PUBLIC_APPID) || "";
-  let apiKey = (process.env.NEXT_PUBLIC_APIKEY) || "";
+  let appId = (process.env.APPID) || "";
+  let apiKey = (process.env.APIKEY) || "";
 
   const client = algoliasearch(appId, apiKey);
   console.log(client._ua);
