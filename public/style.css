@@ -1,0 +1,31 @@
+.ais-Hits-item {
+    margin: 2px 0px;
+    padding: 4px 8px;
+}
+
+#results {
+    display: none;
+}
+
+.ais-Hits-item:hover {
+    cursor: pointer;
+    background-color: #6461A0;
+    box-shadow: 0px 0px 28px -12px rgba(0, 0, 0, 0.75);
+}
+
+.ais-SearchBox-form {
+    background: transparent;
+
+}
+
+.ais-SearchBox-input {
+    border-radius: 20px;
+}
+
+.bg-black {}
+
+.hit-to {}
+
+.hit-from {}
+
+.hit-bus-number {}

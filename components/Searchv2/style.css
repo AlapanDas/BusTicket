@@ -1,0 +1,56 @@
+.ais-Hits-item {
+    border-radius: 12px;
+    margin: 2px 0px;
+    padding: 4px 8px;
+    background-color: rgb(255, 255, 255);
+}
+
+.ais-Hits-list {
+    height: 32vh;
+    margin: 0 2px;
+    overflow: auto;
+}
+
+.ais-Hits {
+    display: none;
+}
+
+#results {
+    display: none;
+}
+
+.bg-onsecondary {
+    background-color: transparent;
+}
+
+.ais-Hits-item:hover {
+    cursor: pointer;
+    background-color: rgb(179 35 46);
+    box-shadow: 0px 0px 28px -12px rgba(0, 0, 0, 0.75);
+}
+
+.ais-SearchBox-form {
+    /* margin: auto; */
+    display: flex;
+    font-size: .875rem;
+    height: 2.5rem;
+    line-height: 1.25rem;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.ais-SearchBox-submit {
+    display: none;
+}
+
+.ais-SearchBox-input {
+    padding: 10px;
+    border: 1px solid darkred;
+    margin: auto;
+    text-align: center;
+    border-radius: 20px;
+    width: 100vh;
+    display: block;
+    margin: auto;
+}

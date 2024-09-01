@@ -7,9 +7,10 @@ import bus from '@/public/bus.svg'
 import about from '@/public/about.svg'
 import arrow from '@/public/arrow.svg'
 
-export default function Home() {
+export default function page() {
      return (
           <>
+               <Header />
                <div className='relative '>
                     <div className='Image '>
                          <div className='fixed -z-10 max-lg:h-28  max-lg:w-28 lg:w-36 lg:h-36 xl:w-36 xl:h-36 right-72 -top-28'>
@@ -27,15 +28,15 @@ export default function Home() {
                                    <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-primary'><Link href={'/search'}>Search</Link></p>
                                    <div className='p-2 rounded-full bg-white'>
                                         <Link href={'/search'}>
-                                             <img src={arrow.src} alt="" />
+                                             <img src={arrow} alt="" />
                                         </Link>
                                    </div>
                               </div>
-                              <img className='bottom-0 absolute left-0  h-32 ' src={bus.src} alt="" />
+                              <img className='bottom-0 absolute left-0  h-32 ' src={bus} alt="" />
                          </div>
                     </div>
-                    <div className="heading text-5xl max-md:text-4xl max-sm:text-3xl font-bold text-center py-8 max-sm:py-6 cursor-pointer  drop-shadow-2xl ">
-                         <h1 className='drop-shadow-2xl'>Welcome to My
+                    <div className="heading text-5xl max-md:text-4xl max-sm:text-3xl font-bold text-center py-20 max-sm:py-20 cursor-pointer  drop-shadow-2xl ">
+                         <h1 className='drop-shadow-2xl'>Welcome href My
                               <span className='hover:text-secondary '>Bus</span>Ticket</h1>
                     </div>
                     <div className='right-0 absolute inset-y-full xl:mr-20 ' >
@@ -43,12 +44,12 @@ export default function Home() {
                               <div className='flex justify-between '>
                                    <div className='p-2 rounded-full bg-white'>
                                         <Link href={'/about'}>
-                                             <img className=' -rotate-90' src={arrow.src} alt="" />
+                                             <img className=' -rotate-90' src={arrow} alt="" />
                                         </Link>
                                    </div>
                                    <p className='font-poppins text-lg font-semibold items-center flex mx-2 text-primary'><Link href={'/about'}>About</Link></p>
                               </div>
-                              <img className='bottom-0 m-2 absolute  h-32 ' src={about.src} alt="" />
+                              <img className='bottom-0 m-2 absolute  h-32 ' src={about} alt="" />
                          </div>
                     </div>
                </div>
