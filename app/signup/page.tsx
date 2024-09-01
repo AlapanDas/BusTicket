@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import React from 'react'
 import Cookies from "js-cookie";
@@ -24,13 +25,13 @@ function Signup() {
                .then((response) => response.json())
                .then((data) => {
 
-                    let user_data = JSON.stringify(data);
+                    let user_data = (data);
 
 
                     if(user_data.status!=='false')
                          alert("Failed")
                     else
-                         alert("Wrong Credentials",user_data.message);
+                         alert("Wrong Credentials"+user_data.message);
                     window.location.href = '/'
                })
                .catch((error) => {
