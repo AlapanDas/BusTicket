@@ -1,5 +1,5 @@
 'use client'
-import { liteClient as algoliasearch } from 'algoliasearch/lite';
+import  liteClient  from 'algoliasearch/lite';
 import React, { useEffect, useState } from 'react';
 import {
   InstantSearch,
@@ -15,8 +15,7 @@ export default function HomePage() {
   let appId = (process.env.NEXT_PUBLIC_APPID) || "";
   let apiKey = (process.env.NEXT_PUBLIC_APIKEY) || "";
 
-  const client = algoliasearch(appId, apiKey);
-  console.log(client._ua);
+  const client = liteClient(appId, apiKey);
 
   const [isHitsVisible, setHitsVisible] = useState<boolean>(false);
 
