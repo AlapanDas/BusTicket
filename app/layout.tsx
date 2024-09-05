@@ -4,15 +4,15 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MyBusTicket",
   description: "MyBusTicket: Your Kolkata Bus Guru",
-  icons:[
+  icons: [
     {
-      url:"/icon.svg"
+      url: "/icon.svg"
     }
   ]
 };
@@ -24,11 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      </head>
       <body className={inter.className}>
+        <GoogleAnalytics gaId="G-RGL7SZBRLC" />
         <Header />
         {children}
         <Footer />
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );
