@@ -7,7 +7,7 @@ const Content = () => {
     const [busnumber, setBusnumber] = useState('');
     const [start, setStart] = useState('');
     const [stop, setStop] = useState('');
-    const [nodes, setNodes] = useState<string>('');
+    const [nodes, setNodes] = useState<string[]>([]);
 
 
     async function handleBus(event: FormEvent<HTMLDivElement>): Promise<any> {
@@ -18,8 +18,6 @@ const Content = () => {
             "to": stop,
             "stops": [nodes]
         }];
-        
-        
             const response = await fetch('/api/bus/', {
                 method: 'POST',
                 headers: {
@@ -29,8 +27,7 @@ const Content = () => {
             });
 
             const data = await response.json();
-            console.log(data);
-            alert(data.status)
+            alert(data.message)
 
     }
 
@@ -69,8 +66,8 @@ const Content = () => {
     )
 }
 
-export default function page({ }: Props) {
-    let [isOpen, setIsOpen] = useState(false)
+export default function Page({ }: Props) {
+    let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
         setIsOpen(false);
@@ -125,9 +122,9 @@ export default function page({ }: Props) {
                                             Add a new Bus !!
                                         </Dialog.Title>
                                         <div className="mt-2">
-                                            <p className="text-onprimary">
+                                            <div className="text-onprimary">
                                                 <Content />
-                                            </p>
+                                            </div>
                                         </div>
 
                                         <div className="mt-4">
