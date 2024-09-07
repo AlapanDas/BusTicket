@@ -1,6 +1,7 @@
 'use client'
 import { Dialog, Transition } from '@headlessui/react';
 import React, { useState, Fragment, FormEvent } from 'react'
+import loader from '@/public/loader.svg'
 
 type Props = {}
 const Content = () => {
@@ -12,56 +13,56 @@ const Content = () => {
 
     async function handleBus(event: FormEvent<HTMLDivElement>): Promise<any> {
         event.preventDefault();
+
         const newBus = [{
             "bus-number": busnumber,
             "from": start,
             "to": stop,
             "stops": [nodes]
         }];
-            const response = await fetch('/api/bus/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newBus),
-            });
+        const response = await fetch('/api/bus', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newBus),
+        });
 
-            const data = await response.json();
-            alert(data.message)
-
+        const data = await response.json();
+        alert(data.message)
     }
 
     return (
         <>
-            <div onSubmit={handleBus}
-            >
-                <form action="" className='flex flex-col gap-2'>
-                    <label htmlFor="busnumber">
-                        <p className='font-bold my-1'>Bus Number</p>
-                        <input value={busnumber} onChange={(e) => setBusnumber(e.target.value)} id='number' className='p-2 rounded-lg font-semibold' type="text" />
-                    </label>
-                    <label htmlFor="route">
-                        <p className='font-bold my-1'>Starting Stop</p>
-                        <input value={start} onChange={(e) => setStart(e.target.value)} id='start' className='p-2 rounded-lg font-semibold' type="text" />
-                        <p className='font-bold my-1'>Ending Stop</p>
-                        <input value={stop} onChange={(e) => setStop(e.target.value)} id='stop' className='p-2 rounded-lg font-semibold' type="text" />
-                    </label>
-                    <label htmlFor="stops">
-                        <p className='font-bold my-1'>Stops</p>
-                        <input value={nodes} onChange={(e) => {
-                            const arr = e.target.value.split(",")
-                            setNodes(arr);
-                        }} id='nodes' className='p-2 rounded-lg font-semibold overflow-y-scroll' type="text" />
-                    </label>
-                    <button
-                        type='submit'
-                        className="inline-flex justify-center rounded-md border border-transparent bg-red-200 px-4 py-2 w-fit mx-auto text-sm font-medium text-red-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    >
-                        Add Bus
-                    </button>
-                </form>
-            </div>
 
+                <div onSubmit={handleBus}
+                >
+                    <form action="" className='flex flex-col gap-2'>
+                        <label htmlFor="busnumber">
+                            <p className='font-bold my-1'>Bus Number</p>
+                            <input value={busnumber} onChange={(e) => setBusnumber(e.target.value)} id='number' className='p-2 rounded-lg font-semibold' type="text" />
+                        </label>
+                        <label htmlFor="route">
+                            <p className='font-bold my-1'>Starting Stop</p>
+                            <input value={start} onChange={(e) => setStart(e.target.value)} id='start' className='p-2 rounded-lg font-semibold' type="text" />
+                            <p className='font-bold my-1'>Ending Stop</p>
+                            <input value={stop} onChange={(e) => setStop(e.target.value)} id='stop' className='p-2 rounded-lg font-semibold' type="text" />
+                        </label>
+                        <label htmlFor="stops">
+                            <p className='font-bold my-1'>Stops</p>
+                            <input value={nodes} onChange={(e) => {
+                                const arr = e.target.value.split(",")
+                                setNodes(arr);
+                            }} id='nodes' className='p-2 rounded-lg font-semibold overflow-y-scroll' type="text" />
+                        </label>
+                        <button
+                            type='submit'
+                            className="inline-flex justify-center rounded-md border border-transparent bg-red-200 px-4 py-2 w-fit mx-auto text-sm font-medium text-red-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        >
+                            Add Bus
+                        </button>
+                    </form>
+                </div>
         </>
     )
 }

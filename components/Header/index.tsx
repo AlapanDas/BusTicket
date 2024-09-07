@@ -46,7 +46,7 @@ export default function Header({ }: Props) {
                     <div className="md:hidden flex items-center">
                          <button onClick={toggleSidebar} className="text-black transition-all delay-200 duration-200 ease-in-out">
                               {/* hamburger icon */}
-                              <img src={ham} alt="" className='h-10' />
+                              <img src={ham.src} alt="" className='h-10' />
                          </button>
                     </div>
                     <div className="hidden md:flex bg-primary p-2 rounded-full text-white mx-2">

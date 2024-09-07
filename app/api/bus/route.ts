@@ -13,14 +13,14 @@ export async function POST(request: Request, response: NextResponse) {
           let newBus = data[0];
 
           try {
-               const { hits } = await index.search(newBus['bus-number']);
-               console.log(hits.length)
-               if (hits.length > 0) {
-                    return NextResponse.json({ message: `Bus with number "${newBus['bus-number']}" already exists.` },{status:409});
-               } else {
+               // const { hits } = await index.search(newBus['bus-number']);
+               // console.log(hits.length)
+               // if (hits.length > 0) {
+               //      return NextResponse.json({ message: `Bus with number "${newBus['bus-number']}" already exists.` },{status:409});
+               // } else {
                     await index.saveObjects([newBus], { autoGenerateObjectIDIfNotExist: true });
                     return NextResponse.json({ message: "Bus added successfully" }, { status: 201 });
-               }
+               // }
           } catch (error) {
                console.error('Error searching for bus:', error);
                return NextResponse.json({ status: 'Error searching for bus', error },{status:500});

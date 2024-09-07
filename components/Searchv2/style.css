@@ -43,7 +43,8 @@
 .ais-SearchBox-submit {
     display: none;
 }
-
+.ais-SearchBox-loadingIndicator{display: none;}
+.ais-SearchBox-reset{display: none;}
 .ais-SearchBox-input {
     padding: 10px;
     border: 1px solid darkred;
