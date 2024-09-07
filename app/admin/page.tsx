@@ -1,15 +1,22 @@
 'use client'
 import { Dialog, Transition } from '@headlessui/react';
-import React, { useState, Fragment, FormEvent } from 'react'
-import loader from '@/public/loader.svg'
+import React, { useState, Fragment, FormEvent, useEffect } from 'react'
+import Cookies from 'js-cookie';
+
 
 type Props = {}
 const Content = () => {
-    const [busnumber, setBusnumber] = useState('');
-    const [start, setStart] = useState('');
-    const [stop, setStop] = useState('');
+    const [busnumber, setBusnumber] = useState<string>('');
+    const [start, setStart] = useState<string>('');
+    const [stop, setStop] = useState<string>('');
     const [nodes, setNodes] = useState<string[]>([]);
+    const [show, setshow] = useState<boolean>(false);
 
+    useEffect(() => {
+        const data = Cookies.get('admin_user');
+        if (data)
+            setshow(true);
+    })
 
     async function handleBus(event: FormEvent<HTMLDivElement>): Promise<any> {
         event.preventDefault();
@@ -34,7 +41,7 @@ const Content = () => {
 
     return (
         <>
-
+            {show &&
                 <div onSubmit={handleBus}
                 >
                     <form action="" className='flex flex-col gap-2'>
@@ -62,7 +69,7 @@ const Content = () => {
                             Add Bus
                         </button>
                     </form>
-                </div>
+                </div>}
         </>
     )
 }
