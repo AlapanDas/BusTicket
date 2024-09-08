@@ -25,10 +25,7 @@ export default function Header({ }: Props) {
           setIsSidebarOpen(!isSidebarOpen);
      };
      function handlelogout() {
-
-
           try {
-               // deleteUser();
                Cookies.remove('auth_user');
                Cookies.remove('admin_user');
           }
@@ -75,14 +72,14 @@ export default function Header({ }: Props) {
                                              leaveTo="opacity-0 translate-y-1"
                                         >
 
-                                             <Popover.Panel className="absolute right-0 z-10 mt-5 flex w-screen max-w-max ">
+                                             <Popover className="absolute right-0 z-10 mt-5 flex w-screen max-w-max ">
                                                   <div className=" max-w-sm bg-black flex-auto overflow-hidden rounded-xl text-sm leading-6 shadow-lg ring-1 ring-onsecondary flex flex-col items-center">
                                                        <div>
                                                             <div className="group relative flex flex-wrap gap-x-6 rounded-lg ">
                                                                  <div className='flex justify-center p-2 gap-4 items-center'>
 
                                                                       <p className="font-semibold text-white text-lg">
-                                                                           User
+                                                                           {Cookies.get('user')}
                                                                       </p>
 
                                                                       <button onClick={handlelogout} className="font-normal text-white text-lg hover:text-secondary">
@@ -93,7 +90,7 @@ export default function Header({ }: Props) {
                                                        </div>
                                                        {isAdmin === 'true' && (<Link href="/admin"><p className='text-red-700 font-semibold my-2' >Admin Panel</p></Link>)}
                                                   </div>
-                                             </Popover.Panel>
+                                             </Popover>
                                         </Transition>
                                    </Popover> : <Link className='flex items-center' href="/login"><p >Login</p></Link>}
                          </Link>

@@ -2,46 +2,44 @@
 import { useState } from "react";
 import React from 'react'
 import Cookies from "js-cookie";
+import { UserSignup } from "../api/auth/data-type";
+import { redirect } from "next/navigation";
 
 
 function Signup() {
-
      const [loading, setLoading] = useState(false);
+     const [username, setUsername] = useState('');
+     const [password, setPassword] = useState('');
+     const [email, setEmail] = useState('');
+
      const handleSubmit = async (e: { preventDefault: () => void; }) => {
           e.preventDefault();
+ 
 
-          fetch('https://gearshift-backend.onrender.com/user/signin', {
-               method: 'POST',
-               headers: {
-                    'Content-Type': 'application/json',
-               },
-               body: JSON.stringify({
-                    username: 'username',
-                    password: 'password',
-                    email: 'email'
-               }),
-               credentials: 'include',
-          })
-               .then((response) => response.json())
-               .then((data) => {
-
-                    let user_data = (data);
+          const userData: UserSignup = { username, password, email };
+          try {
+               const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                    credentials: 'include',
+               });
+               const data = await response.json();
 
 
-                    if(user_data.status!=='false')
-                         alert("Failed")
-                    else
-                         alert("Wrong Credentials"+user_data.message);
-                    window.location.href = '/'
-               })
-               .catch((error) => {
-
-                    console.error('Error:', error)
-               })
-               .finally();
-
-
-
+               if (response.ok) {
+                    Cookies.set('user', data.username,{ sameSite: 'strict' })
+                    Cookies.set("auth_user", data.access_token,{ sameSite: 'strict' });
+                    Cookies.set("admin_user" as string, data.isAdmin,{ sameSite: 'strict' });
+               }
+          } catch (error) {
+               alert(error)
+          }
+          finally{
+              redirect('/');
+          }
      };
 
      return (
@@ -54,11 +52,11 @@ function Signup() {
                               <h1 className='text-lg font-semibold md:text-start sm:text-center my-1'>Log In</h1>
                               <form onSubmit={handleSubmit}>
                                    <p className=' text-sm italic font-mono ' >UserID</p>
-                                   <input autoComplete='current-password' id='name' type="text" className='italic shadow-xl border font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52 rounded-md' />
+                                   <input autoComplete='current-password' id='name' type="text" value={username} onChange={(e) => setUsername(e.target.value)} className='italic shadow-xl border font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52 rounded-md' />
                                    <p className=' text-sm italic font-mono ' >Email</p>
-                                   <input autoComplete='current-password' id='email' type="text" className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
+                                   <input autoComplete='current-password' id='email' type="text" value={email} onChange={(e) => setEmail(e.target.value)} className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
                                    <p className=' text-sm italic font-mono ' >Password</p>
-                                   <input autoComplete='current-password' id='password' type="password" className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
+                                   <input autoComplete='current-password' id='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
                                    <button type="submit" className='border border-onsecondary p-2 mx-auto mt-2 rounded-xl hover:bg-secondary '>Log In</button>
                               </form>
                               <h2>Have an account? Log in <a href="/login" className='text-red-800'>here</a></h2>

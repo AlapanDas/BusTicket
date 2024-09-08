@@ -4,8 +4,6 @@ import Cookie from 'js-cookie';
 import Card from '@/components/Card';
 import { propData } from '@/components/Card/data-type';
 import HomePage from '@/components/Searchv2';
-import { sendGAEvent } from '@next/third-parties/google'
-import { sendGTMEvent } from '@next/third-parties/google'
 
 type ResponseObject = {
   data: propData[];
@@ -15,8 +13,7 @@ const Page: React.FC = () => {
   const [responseData, setResponseData] = useState<ResponseObject | null>(null);
 
   useEffect(() => {
-    sendGTMEvent({ event: "User Searched", value: "Search Page" });
-    sendGAEvent({ event: "User Searched", value: "Search Page" })
+
     const cookieData = Cookie.get('busData');
     if (cookieData) {
       try {

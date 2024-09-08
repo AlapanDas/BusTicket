@@ -24,10 +24,11 @@ export default function Auth() {
 
                const data = await response.json();
 
-               
+
                if (response.ok) {
-                    Cookies.set("auth_user", data.access_token);
-                    Cookies.set("admin_user" as string, data.isAdmin);
+                    Cookies.set('user', data.username, { sameSite: 'strict' })
+                    Cookies.set("auth_user", data.access_token, { sameSite: 'strict' });
+                    Cookies.set("admin_user" as string, data.isAdmin, { sameSite: 'strict' });
                }
           } catch (error) {
                alert('An error occurred. Please try again.');
@@ -56,7 +57,7 @@ export default function Auth() {
                                    <input autoComplete='current-password' id='pswd' type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='shadow-xl border italic font-semibold m-1 px-1 py-1 lg:w-72 md:w-60 sm:w-52  rounded-md' />
                                    <button type="submit" className='border border-onsecondary p-2 mx-auto mt-2 rounded-xl hover:bg-secondary '>Log In</button>
                               </form>
-                              <h2>Don&lsquo;t have an account? Sign up <a href="/signin" className='text-red-800'>here !!</a></h2>
+                              <h2>Don&lsquo;t have an account? Sign up <a href="/signup" className='text-red-800'>here !!</a></h2>
                          </div>
                     </div>
                )}

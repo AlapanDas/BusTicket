@@ -10,13 +10,8 @@ const Content = () => {
     const [start, setStart] = useState<string>('');
     const [stop, setStop] = useState<string>('');
     const [nodes, setNodes] = useState<string[]>([]);
-    const [show, setshow] = useState<boolean>(false);
 
-    useEffect(() => {
-        const data = Cookies.get('admin_user');
-        if (data)
-            setshow(true);
-    })
+
 
     async function handleBus(event: FormEvent<HTMLDivElement>): Promise<any> {
         event.preventDefault();
@@ -41,7 +36,7 @@ const Content = () => {
 
     return (
         <>
-            {show &&
+            
                 <div onSubmit={handleBus}
                 >
                     <form action="" className='flex flex-col gap-2'>
@@ -69,13 +64,22 @@ const Content = () => {
                             Add Bus
                         </button>
                     </form>
-                </div>}
+                </div>
         </>
     )
 }
 
 export default function Page({ }: Props) {
+    const [show, setshow] = useState<boolean>(false);
     let [isOpen, setIsOpen] = useState(false);
+
+
+    useEffect(() => {
+        const data = Cookies.get('admin_user');
+        if (data)
+            setshow(true);
+        console.log(data);
+    }, [])
 
     function closeModal() {
         setIsOpen(false);
@@ -86,71 +90,74 @@ export default function Page({ }: Props) {
     }
     return (
         <>
-            <div className='flex m-6'>
-                <div className="block mx-auto">
-                    <button
-                        type="button"
-                        onClick={openModal}
-                        className="rounded-md bg-red-700 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-                    >
-                        Add a Bus
-                    </button>
-                </div>
-
-                <Transition appear show={isOpen} as={Fragment}>
-                    <Dialog as="div" className="relative z-20 " onClose={closeModal}>
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
+            {show ?
+                <div className='flex m-6'>
+                    <div className="block mx-auto">
+                        <button
+                            type="button"
+                            onClick={openModal}
+                            className="rounded-md bg-red-700 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
                         >
-                            <div className="fixed inset-0 bg-black/25" />
-                        </Transition.Child>
+                            Add a Bus
+                        </button>
+                    </div>
 
-                        <div className="fixed inset-0 top-10 overflow-y-auto">
-                            <div className="flex min-h-full items-center justify-center p-4 text-center">
-                                <Transition.Child
-                                    as={Fragment}
-                                    enter="ease-out duration-200"
-                                    enterFrom="opacity-0 scale-95"
-                                    enterTo="opacity-100 scale-100"
-                                    leave="ease-in duration-200"
-                                    leaveFrom="opacity-100 scale-100"
-                                    leaveTo="opacity-0 scale-95"
-                                >
-                                    <Dialog.Panel className="z-50 border-onsecondary border bg-secondary text-center transform overflow-hidden rounded-2xl p-6 align-middle shadow-xl transition-all">
-                                        <Dialog.Title
-                                            as="h3"
-                                            className="text-lg font-medium leading-6 text-gray-900"
-                                        >
-                                            Add a new Bus !!
-                                        </Dialog.Title>
-                                        <div className="mt-2">
-                                            <div className="text-onprimary">
-                                                <Content />
-                                            </div>
-                                        </div>
+                    <Transition appear show={isOpen} as={Fragment}>
+                        <Dialog as="div" className="relative z-20 " onClose={closeModal}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div className="fixed inset-0 bg-black/25" />
+                            </Transition.Child>
 
-                                        <div className="mt-4">
-                                            <button
-                                                type="button"
-                                                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                                onClick={closeModal}
+                            <div className="fixed inset-0 top-10 overflow-y-auto">
+                                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                                    <Transition.Child
+                                        as={Fragment}
+                                        enter="ease-out duration-200"
+                                        enterFrom="opacity-0 scale-95"
+                                        enterTo="opacity-100 scale-100"
+                                        leave="ease-in duration-200"
+                                        leaveFrom="opacity-100 scale-100"
+                                        leaveTo="opacity-0 scale-95"
+                                    >
+                                        <Dialog.Panel className="z-50 border-onsecondary border bg-secondary text-center transform overflow-hidden rounded-2xl p-6 align-middle shadow-xl transition-all">
+                                            <Dialog.Title
+                                                as="h3"
+                                                className="text-lg font-medium leading-6 text-gray-900"
                                             >
-                                                Close
-                                            </button>
-                                        </div>
-                                    </Dialog.Panel>
-                                </Transition.Child>
+                                                Add a new Bus !!
+                                            </Dialog.Title>
+                                            <div className="mt-2">
+                                                <div className="text-onprimary">
+                                                    <Content />
+                                                </div>
+                                            </div>
+
+                                            <div className="mt-4">
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                                    onClick={closeModal}
+                                                >
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </Dialog.Panel>
+                                    </Transition.Child>
+                                </div>
                             </div>
-                        </div>
-                    </Dialog>
-                </Transition>
-            </div>
+                        </Dialog>
+                    </Transition>
+                </div>
+                : <p className=' flex justify-center text-2xl text-secondary font-bold '>Please Login</p>
+            }
         </>
     )
 }

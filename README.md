@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/user-attachments/assets/46aae12c-15dc-4c13-9398-101a09bf269a)
 
-## Getting Started
+# MyBusTicket: _Your Kolkata Bus Guru_
+https://mybusticket.vercel.app/
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Hey there! Feeling overwhelmed by Kolkata's bus system? You're not alone! This app is here to be your friendly guide, especially if you're new to the city. Built by yours truly, Alapan, MyBusTicket helps you navigate the ins and outs of getting around Kolkata by bus.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What can MyBusTicket do?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Search by Route
+https://mybusticket.vercel.app/search-route
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](https://github.com/user-attachments/assets/6cd0f874-62c1-4b46-a72e-c828dfa4c915)
 
-## Learn More
+Ever felt lost trying to figure out which bus to take? No worries! Search for buses between any two places in Kolkata using landmarks or locality names you recognize. Think "Park Street to Howrah Station" or "Golpark to Alipore Zoo." Easy peasy!
 
-To learn more about Next.js, take a look at the following resources:
+### Search by Bus Number
+https://mybusticket.vercel.app/search-number
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![image](https://github.com/user-attachments/assets/773c0ba9-0468-4151-8763-ccf13d4691e2)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Got the bus number but clueless about its route? MyBusTicket has you covered! Look up the number and see exactly where that bus goes. No more wrong turns!
 
-## Deploy on Vercel
+## Making Kolkata Easier to Explore
+This app is all about making your commute smoother and exploring Kolkata more enjoyable. Whether you're a seasoned Kolkatan or a curious newcomer, MyBusTicket is here to be your bus buddy!
+![image](https://github.com/user-attachments/assets/c4fd04c9-8f8e-43ef-8103-d06175fd72f5)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Wanna Lend a Hand?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is still under construction, but with your help, it can become even better! If you're a developer with some ideas to improve MyBusTicket, we'd love to hear them! Just check out the CONTRIBUTING.md file for details.
+
+## License
+MyBusTicket is licensed under the MIT License (see LICENSE.md for details).
