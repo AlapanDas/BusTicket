@@ -1,12 +1,10 @@
-
-import { Bus } from "./data-type";
 import algoliasearch from 'algoliasearch';
 import { NextResponse } from "next/server";
 
 
 export async function POST(request: Request, response: NextResponse) {
      try {
-          const client = algoliasearch(process.env.NEXT_PUBLIC_APPID as string, process.env.SEARCH_KEY as string);
+          const client = algoliasearch(process.env.NEXT_PUBLIC_APPID as string, process.env.ADMIN_KEY as string);
           const index = client.initIndex('results');
           
           let data = await request.json();

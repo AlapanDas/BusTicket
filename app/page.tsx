@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '@/components/Header'
 import Link from 'next/link'
 import Bubble from '@/components/Bubble'
 import Footer from '@/components/Footer'
 import bus from '@/public/bus.svg'
 import about from '@/public/about.svg'
 import arrow from '@/public/arrow.svg'
+
 
 export default function Home() {
      return (
